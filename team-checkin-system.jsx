@@ -136,6 +136,12 @@ export default function App() {
     setTimeout(() => setCopiedIdx(null), 2500);
   };
 
+  const clearData = async () => {
+    if (!window.confirm("Clear all data? This will remove all entries including demo data. This cannot be undone.")) return;
+    setEntries([]);
+    await saveData("checkin-entries", []);
+  };
+
   // Derived
   const currentWeek = WEEK_LABEL(0);
   const weeks = [...new Set(entries.map(e => e.week))].sort().reverse();
@@ -267,6 +273,7 @@ export default function App() {
             </div>
             <div style={st.progressTrack}><div style={{ ...st.progressFill, width:`${(thisWeekDone.length/NAMES.length)*100}%` }} /></div>
             <div style={st.bannerPct}>{Math.round((thisWeekDone.length/NAMES.length)*100)}%</div>
+            <button onClick={clearData} style={st.clearBtn} title="Clear all data">✕ Clear demo data</button>
           </div>
 
           {/* Member cards */}
@@ -471,7 +478,7 @@ const st = {
   mcPreview: { borderTop:"1px solid #EAF4F8", paddingTop:8, display:"flex", flexDirection:"column", gap:4 },
   mcLine: { display:"flex", gap:6, fontSize:11, color:"#5A8FA3", lineHeight:1.4 },
   nudgeBtn: { marginTop:8, width:"100%", background:"transparent", border:"1px solid #C8DFE8", color:"#5A8FA3", borderRadius:6, padding:"5px 8px", cursor:"pointer", fontSize:11, fontFamily:"inherit" },
-  bulkRow: { display:"flex", alignItems:"center", gap:14, marginBottom:6 },
+  clearBtn: { background:"transparent", border:"1px solid #C8DFE8", color:"#5A8FA3", padding:"6px 12px", borderRadius:6, cursor:"pointer", fontSize:11, fontFamily:"inherit", flexShrink:0, whiteSpace:"nowrap" },
   bulkHint: { fontSize:12, color:"#5A8FA3" },
 
   // Shared layout
