@@ -2,14 +2,9 @@ import { useState, useEffect } from "react";
 
 // ─── Config ───────────────────────────────────────────────────
 const TEAM_MEMBERS = [
-  { name: "Alice Chen",  email: "alice@company.com" },
-  { name: "Ben Torres",  email: "ben@company.com" },
-  { name: "Cleo Park",   email: "cleo@company.com" },
-  { name: "Dan Osei",    email: "dan@company.com" },
-  { name: "Eva Müller",  email: "eva@company.com" },
-  { name: "Finn Walsh",  email: "finn@company.com" },
-  { name: "Grace Liu",   email: "grace@company.com" },
-  { name: "Hugo Reyes",  email: "hugo@company.com" },
+  { name: "Euan Macleod",  email: "euan@voqa.com" },
+  { name: "Nick Pointon",  email: "nick@voqa.com" },
+  { name: "Brandon Tarr",   email: "brandon@voqa.com" },
 ];
 const NAMES = TEAM_MEMBERS.map(m => m.name);
 const MEMBER_COLORS = ["#005C80","#2E86AB","#1A6B52","#B85C00","#C0392B","#5B6DAE","#1A7A6E","#7B4A8C"];
